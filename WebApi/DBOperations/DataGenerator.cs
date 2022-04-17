@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
+using WebApi;
+using WebApi.Entities;
 
 namespace WebApi.DBOperations
 {
@@ -15,6 +17,25 @@ namespace WebApi.DBOperations
                 {
                     return;
                 }
+
+                context.Authors.AddRange(
+                    new Author { FirstName="Zikriye",LastName="Ürkmez",BirthDate=DateTime.Parse("12/12/1888")},
+                    new Author { FirstName = "Enes", LastName = "Biçen", BirthDate = DateTime.Parse("12/12/1888") },
+                    new Author { FirstName = "Mustafa", LastName = "Varol", BirthDate = DateTime.Parse("12/12/1978") });
+
+                context.Genres.AddRange(
+                    new Genre {
+                    Name = "Personal Growth" },
+                    new Genre
+                    {
+                        Name = "Science Fiction"
+                    },
+                    new Genre
+                    {
+                        Name = "Romance" 
+                    });
+
+
                 context.Books.AddRange(
                     new Book
                     {
